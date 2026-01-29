@@ -1,3 +1,3 @@
 Template Name: Rams Lodge
-Template Author: gusherlabs.com
+Template Author: nthawifarms.com
 
