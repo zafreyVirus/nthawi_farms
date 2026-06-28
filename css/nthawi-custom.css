@@ -1,4 +1,286 @@
 /* ============================================================
+   PDF CERTIFICATION STYLES
+   ============================================================ */
+
+/* Certification Cards */
+.certification-card {
+  cursor: default;
+  border: 2px solid #e8e0d0;
+  transition: all 0.3s ease;
+}
+
+.certification-card:hover {
+  border-color: #2d6a4f;
+  box-shadow: 0 8px 25px rgba(45, 106, 79, 0.15);
+  transform: translateY(-5px);
+}
+
+.certification-card .achievement-body p {
+  margin-bottom: 16px;
+}
+
+/* PDF Action Buttons */
+.pdf-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-pdf-preview,
+.btn-pdf-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-pdf-preview {
+  background: #2d6a4f;
+  color: #fff;
+}
+
+.btn-pdf-preview:hover {
+  background: #1e3d20;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.3);
+}
+
+.btn-pdf-download {
+  background: #f0ebe0;
+  color: #333;
+}
+
+.btn-pdf-download:hover {
+  background: #d4c9a8;
+  color: #1e3d20;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.btn-pdf-preview .icon-eye,
+.btn-pdf-download .icon-download {
+  font-size: 14px;
+}
+
+/* PDF Modal */
+.pdf-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  animation: fadeIn 0.3s ease;
+}
+
+.pdf-modal-overlay.active {
+  display: flex;
+}
+
+.pdf-modal {
+  background: #fff;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  animation: modalSlideIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pdf-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  border-bottom: 1px solid #e8e0d0;
+  background: #f8f6f1;
+}
+
+.pdf-modal-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: #1e3d20;
+  margin: 0;
+}
+
+.pdf-modal-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.pdf-modal-close:hover {
+  color: #333;
+}
+
+.pdf-modal-body {
+  padding: 20px;
+  background: #fafafa;
+}
+
+#pdfViewerContainer {
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+#pdfViewer {
+  width: 100%;
+  height: 600px;
+  display: block;
+  border: none;
+}
+
+/* Fallback for browsers that don't support iframe PDF */
+.pdf-fallback {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+
+.pdf-fallback .icon-file-pdf {
+  font-size: 48px;
+  color: #d32f2f;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.pdf-modal-footer {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+  padding: 16px 0 4px;
+}
+
+.btn-pdf-download-modal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: #2d6a4f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-pdf-download-modal:hover {
+  background: #1e3d20;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-pdf-close {
+  padding: 10px 24px;
+  background: #f0ebe0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-pdf-close:hover {
+  background: #d4c9a8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pdf-modal {
+    max-height: 95vh;
+    margin: 10px;
+  }
+  
+  #pdfViewer {
+    height: 400px;
+  }
+  
+  .pdf-modal-header {
+    padding: 14px 18px;
+  }
+  
+  .pdf-modal-header h3 {
+    font-size: 18px;
+  }
+  
+  .pdf-modal-body {
+    padding: 12px;
+  }
+  
+  .pdf-actions {
+    flex-direction: column;
+  }
+  
+  .btn-pdf-preview,
+  .btn-pdf-download {
+    justify-content: center;
+  }
+  
+  .pdf-modal-footer {
+    flex-direction: column;
+  }
+  
+  .btn-pdf-download-modal,
+  .btn-pdf-close {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #pdfViewer {
+    height: 300px;
+  }
+  
+  .pdf-modal-overlay {
+    padding: 10px;
+  }
+}
+
+
+/* ============================================================
    NTHAWI FARMS - Custom Additions
    ============================================================ */
 

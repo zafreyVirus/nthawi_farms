@@ -112,7 +112,7 @@
             </div>
 
             <!-- Certifications -->
-            <div class="row mb-4">
+            <!-- <div class="row mb-4">
               <div class="col-12"><h4 style="font-family:'Roboto',sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#8a7a5a; margin-bottom:24px;">&#9679; Certifications</h4></div>
               <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="achievement-card">
@@ -144,7 +144,70 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
+
+<!-- Certifications -->
+<div class="row mb-4">
+  <div class="col-12"><h4 style="font-family:'Roboto',sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#8a7a5a; margin-bottom:24px;">&#9679; Certifications</h4></div>
+  
+  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="achievement-card certification-card" data-pdf="documents/nthawi-registration.pdf">
+      <div class="achievement-icon">&#128196;</div>
+      <div class="achievement-body">
+        <div class="year">2024</div>
+        <h4>Nthawi Farms Registration Certificate</h4>
+        <p>Official business registration certificate for Nthawi Farms, confirming our legal status as an agricultural enterprise in Malawi.</p>
+        <div class="pdf-actions">
+          <button class="btn-pdf-preview" onclick="previewPDF('documents/nthawi-registration.pdf', 'Nthawi Farms Registration Certificate')">
+            <span class="icon-eye"></span> Preview
+          </button>
+          <a href="documents/nthawi-registration.pdf" download class="btn-pdf-download">
+            <span class="icon-download"></span> Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+    <div class="achievement-card certification-card" data-pdf="documents/mra-tax-clearance.pdf">
+      <div class="achievement-icon">&#128200;</div>
+      <div class="achievement-body">
+        <div class="year">2024</div>
+        <h4>Tax Clearance Certificate - MRA</h4>
+        <p>General Tax Clearance Certificate issued by the Malawi Revenue Authority (MRA), confirming compliance with all tax obligations.</p>
+        <div class="pdf-actions">
+          <button class="btn-pdf-preview" onclick="previewPDF('documents/mra-tax-clearance.pdf', 'MRA Tax Clearance Certificate')">
+            <span class="icon-eye"></span> Preview
+          </button>
+          <a href="documents/mra-tax-clearance.pdf" download class="btn-pdf-download">
+            <span class="icon-download"></span> Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="achievement-card certification-card" data-pdf="documents/organic-certification.pdf">
+      <div class="achievement-icon">&#127991;</div>
+      <div class="achievement-body">
+        <div class="year">2024</div>
+        <h4>Organic Farming Certification</h4>
+        <p>Certified by the Malawi Organic Practitioners Association (MOPA) for adherence to organic production standards across all vegetable and grain crops.</p>
+        <div class="pdf-actions">
+          <button class="btn-pdf-preview" onclick="previewPDF('documents/organic-certification.pdf', 'Organic Farming Certification')">
+            <span class="icon-eye"></span> Preview
+          </button>
+          <a href="documents/organic-certification.pdf" download class="btn-pdf-download">
+            <span class="icon-download"></span> Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
             <!-- Awards -->
             <div class="row mb-4">
@@ -220,6 +283,27 @@
         </div>
       </div>
     </main>
+
+    <!-- PDF Preview Modal -->
+<div class="pdf-modal-overlay" id="pdfModal">
+  <div class="pdf-modal">
+    <div class="pdf-modal-header">
+      <h3 id="pdfModalTitle">Certificate Preview</h3>
+      <button class="pdf-modal-close" onclick="closePDFPreview()">&times;</button>
+    </div>
+    <div class="pdf-modal-body">
+      <div id="pdfViewerContainer">
+        <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+      </div>
+      <div class="pdf-modal-footer">
+        <a id="pdfDownloadLink" href="#" download class="btn-pdf-download-modal">
+          <span class="icon-download"></span> Download PDF
+        </a>
+        <button class="btn-pdf-close" onclick="closePDFPreview()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <footer class="zazu_gu--site-footer">
       <div class="container">

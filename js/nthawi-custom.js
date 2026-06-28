@@ -1,4 +1,68 @@
 /* ============================================================
+   PDF PREVIEW FUNCTIONALITY
+   ============================================================ */
+
+function previewPDF(pdfPath, title) {
+  // Set the iframe source
+  var viewer = document.getElementById('pdfViewer');
+  var titleEl = document.getElementById('pdfModalTitle');
+  var downloadLink = document.getElementById('pdfDownloadLink');
+  
+  // Set title
+  if (titleEl) titleEl.textContent = title || 'Certificate Preview';
+  
+  // Set PDF viewer (using Google Docs viewer as fallback)
+  var viewerSrc = pdfPath;
+  // Use Google Docs viewer for better compatibility
+  // viewerSrc = 'https://docs.google.com/viewer?url=' + encodeURIComponent(window.location.origin + '/' + pdfPath) + '&embedded=true';
+  viewer.src = viewerSrc;
+  
+  // Set download link
+  if (downloadLink) {
+    downloadLink.href = pdfPath;
+    downloadLink.download = pdfPath.split('/').pop();
+  }
+  
+  // Show modal
+  var modal = document.getElementById('pdfModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closePDFPreview() {
+  var modal = document.getElementById('pdfModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    // Clear iframe to stop loading
+    var viewer = document.getElementById('pdfViewer');
+    if (viewer) viewer.src = '';
+  }
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closePDFPreview();
+  }
+});
+
+// Close modal on overlay click
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById('pdfModal');
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closePDFPreview();
+      }
+    });
+  }
+});
+
+
+/* ============================================================
    NTHAWI FARMS - Custom JS
    ============================================================ */
 
