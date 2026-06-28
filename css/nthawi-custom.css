@@ -3,78 +3,255 @@
    ============================================================ */
 
 /* ===== PARTNERS CAROUSEL ===== */
+
 .partners-section {
   background: #f8f6f1;
-  padding: 60px 0;
+  padding: 60px 0 50px;
   overflow: hidden;
   border-top: 1px solid #e8e0d0;
   border-bottom: 1px solid #e8e0d0;
 }
+
 .partners-label {
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #8a7a5a;
-  margin-bottom: 36px;
+  color: #2d6a4f;
+  margin-bottom: 40px;
+  position: relative;
 }
+
 .partners-track-wrap {
   overflow: hidden;
   position: relative;
+  padding: 10px 0;
 }
+
 .partners-track-wrap::before,
 .partners-track-wrap::after {
   content: '';
   position: absolute;
-  top: 0; bottom: 0;
-  width: 100px;
+  top: 0;
+  bottom: 0;
+  width: 120px;
   z-index: 2;
   pointer-events: none;
 }
-.partners-track-wrap::before { left: 0; background: linear-gradient(to right, #f8f6f1, transparent); }
-.partners-track-wrap::after  { right: 0; background: linear-gradient(to left, #f8f6f1, transparent); }
+
+.partners-track-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, #f8f6f1, transparent);
+}
+
+.partners-track-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, #f8f6f1, transparent);
+}
+
 .partners-track {
   display: flex;
   width: max-content;
-  animation: scroll-partners 32s linear infinite;
+  animation: scroll-partners 30s linear infinite;
 }
-.partners-track:hover { animation-play-state: paused; }
+
+.partners-track:hover {
+  animation-play-state: paused;
+}
+
 @keyframes scroll-partners {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
+
+/* Partner Card - Horizontal Layout */
+.partner-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 30px 12px 20px;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 8px;
+  margin: 0 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #f0ebe0;
+}
+
+.partner-card:hover {
+  box-shadow: 0 6px 20px rgba(45, 106, 79, 0.12);
+  transform: translateY(-3px);
+  border-color: #d4c9a8;
+}
+
+/* Partner Logo Box - Horizontal */
+.partner-logo-box {
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px;
+  flex-shrink: 0;
+  border: 1px solid #f0ebe0;
+  transition: all 0.3s ease;
+}
+
+.partner-logo-img {
+  max-width: 100%;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Partner Name - Horizontal next to logo */
+.partner-name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+/* Make sure partner items work with images */
+.partner-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .partners-label::before,
+  .partners-label::after {
+    width: 30px;
+  }
+  
+  .partners-label::before {
+    transform: translateX(-80px);
+  }
+  
+  .partners-label::after {
+    transform: translateX(80px);
+  }
+  
+  .partner-card {
+    padding: 10px 20px 10px 15px;
+    min-width: 160px;
+    gap: 10px;
+  }
+  
+  .partner-logo-box {
+    width: 60px;
+    height: 50px;
+  }
+  
+  .partner-logo-img {
+    max-height: 40px;
+  }
+  
+  .partner-name {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+  
+  .partners-label::before,
+  .partners-label::after {
+    display: none;
+  }
+  
+  .partner-card {
+    padding: 8px 14px 8px 10px;
+    min-width: 130px;
+    gap: 8px;
+    margin: 0 6px;
+  }
+  
+  .partner-logo-box {
+    width: 50px;
+    height: 40px;
+  }
+  
+  .partner-logo-img {
+    max-height: 32px;
+  }
+  
+  .partner-name {
+    font-size: 10px;
+  }
+}
+
+/* Partner Logo Images */
+.partner-logo-box {
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.partner-logo-img {
+  max-width: 100%;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Optional: Add hover effect */
+.partner-card:hover .partner-logo-box {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+/* Make sure partner items work with images */
+.partner-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+/* For partner cards in the carousel */
 .partner-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 16px 36px;
-  gap: 12px;
-  min-width: 180px;
+  gap: 8px;
+  min-width: 140px;
+  padding: 10px;
 }
-.partner-logo-box {
-  width: 110px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid #d4c9a8;
-  border-radius: 6px;
-  background: #fff;
-  padding: 10px 14px;
-  transition: box-shadow 0.3s, border-color 0.3s;
-}
-.partner-logo-box:hover { box-shadow: 0 4px 18px rgba(138,122,90,0.2); border-color: #b8a870; }
-.partner-logo-box svg { width: 100%; height: auto; }
+
 .partner-name {
-  font-family: 'Roboto', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #5a4e38;
+  font-size: 13px;
+  color: #333;
+  font-weight: 500;
   text-align: center;
 }
 

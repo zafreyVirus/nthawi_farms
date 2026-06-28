@@ -5,23 +5,38 @@
 /* ===== PARTNERS CAROUSEL ===== */
 (function () {
   var partners = [
-    { name: 'Agro Malawi',    initials: 'AM', color: '#2d6a4f' },
-    { name: 'Feed the Future',initials: 'FF', color: '#1d6b8c' },
-    { name: 'USAID',          initials: 'US', color: '#002868' },
-    { name: 'FAO Malawi',     initials: 'FA', color: '#3d8b37' },
-    { name: 'World Vision',   initials: 'WV', color: '#c8102e' },
-    { name: 'MoAIWD',         initials: 'MW', color: '#6b3d10' },
-    { name: 'GIZ Malawi',     initials: 'GZ', color: '#1a5276' },
-    { name: 'CRS Malawi',     initials: 'CR', color: '#b7950b' },
+    { 
+      name: 'Ministry of Agriculture', 
+      img: 'images/partners/minAgri.jpeg',
+      alt: 'Ministry of Agriculture Malawi'
+    },
+    { 
+      name: 'Cadecom Malawi',
+      img: 'images/partners/cadecom.png',
+      alt: 'Cadecom Malawi'
+    },
+    { 
+      name: 'ETG',
+      img: 'images/partners/ETG.avif',
+      alt: 'ETG'
+    },
+    { 
+      name: 'Chriss Trading',
+      img: 'images/partners/Chriss-Trading-Logo.png',
+      alt: 'Chriss Trading'
+    },
+    { 
+      name: 'Fawwg Agrodealers',
+      img: 'images/partners/partner5.png',
+      alt: 'Fawwg Trading'
+    },
   ];
 
   function card(p) {
     return '<div class="partner-card">' +
       '<div class="partner-logo-box">' +
-      '<svg viewBox="0 0 90 44" xmlns="http://www.w3.org/2000/svg">' +
-      '<rect width="90" height="44" rx="4" fill="' + p.color + '" opacity="0.09"/>' +
-      '<text x="45" y="28" font-family="Georgia,serif" font-size="17" font-weight="bold" fill="' + p.color + '" text-anchor="middle">' + p.initials + '</text>' +
-      '</svg></div>' +
+      '<img src="' + p.img + '" alt="' + p.alt + '" class="partner-logo-img">' +
+      '</div>' +
       '<span class="partner-name">' + p.name + '</span>' +
       '</div>';
   }
